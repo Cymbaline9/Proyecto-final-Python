@@ -1,0 +1,32 @@
+{% extends "padre.html" %}
+
+
+{% block seccion %}
+    <h1>Ingreso correcto</h1>
+    
+{% endblock %}
+
+
+{% block contenido %}
+
+  
+    <h2>Bienvenidx!</h2>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="card" style="width: 18rem;">
+                    <img src="{{ url }}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{user.username}}</h5>
+                            <p class="card-text"></p>
+                            <a href="{% url 'edituser' %}" class="btn btn-warning">Editar perfil</a>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+            
+    
+    
+
+{% endblock %}

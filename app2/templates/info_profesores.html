@@ -1,0 +1,55 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+
+
+{% block seccion %}
+    <h1>Info sobre profesores</h1>
+{% endblock %}
+
+
+
+{% block contenido %}
+
+
+
+
+<main>
+<br>
+
+
+
+<div class="container">
+  <div class="row">
+    {% for profesor in profesores %}
+    <div class="col-4">
+      <div class="card" style="width: 18rem;">
+        <img src="{% static 'app2/assets/img/testimonials-1.jpg' %}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Nombre: {{profesor.nombre}}</h5>
+          <p class="card-text">Apellido: {{profesor.apellido}}</p>
+          <p class="card-text">DNI: {{profesor.dni}}</p>
+          <p class="card-text">Email: {{profesor.email}}</p>
+          <p class="card-text">Materia: {{profesor.materia}}</p>
+          {% if user.is_superuser %}
+          <a href="{%url 'editar_profesor' profesor.id%}" class="btn btn-success">EDITAR</a>
+          <a href="{% url 'borrar_profesor' profesor.id %}" class="btn btn-danger">BORRAR</a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+
+  
+  
+</main>
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "padre.html" %}
+
+
+
+
+{% block seccion %}
+    <h1>Borrar profe</h1>
+    
+{% endblock %}
+
+{% block contenido %}
+
+<div class="container text-center">
+
+    <form method="post">{% csrf_token %}
+        <h4>Estás seguro(a) que deseas borrar el alumno {{profesor.id}} {{profesor.nombre}} {{profesor.apellido}}?</h4>
+        <p>
+            <button type="submit" class="btn btn-danger">Eliminar</button>
+        </p>
+    </form>
+    
+    </div>
+    
+
+{% endblock %}

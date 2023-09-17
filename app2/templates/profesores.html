@@ -1,0 +1,57 @@
+{% extends "padre.html" %}
+
+
+
+{% block seccion %}
+    <h1>Profesores</h1>
+{% endblock %}
+
+
+
+{% block contenido %}
+
+<main>
+    <h1>Menú Profesores</h1>
+    <br><br>
+    
+    <div class="container">
+         
+        <div class="row">
+            <div class="col-4">
+                <div class="card" style="width: 18rem;">
+                <a href="{% url 'info_profesores' %}">
+                    <button type="button" class="btn btn-dark">Info de profesores</button>
+                </a>
+                </div>
+            </div>
+        </div>
+
+        {% if user.is_superuser %}
+        <div class="row">
+            <div class="col-4">
+                <div class="card" style="width: 18rem;">
+                    <a href="{% url 'alta_profesor' %}">
+                        <button type="button" class="btn btn-light">Alta de profesores</button>
+                    </a>
+                    </div>
+                  </div>
+            </div>
+       
+            <div class="row">
+                <div class="col-4">
+                    <div class="card" style="width: 18rem;">
+                        <a href="{% url 'buscar_profe' %}">
+                            <button type="button" class="btn btn-dark">Buscar un profesor</button>
+                        </a>
+                        </div>
+                      </div>
+                </div>
+        {% endif %}    
+    </div>
+    
+       
+
+ 
+</main>
+
+{% endblock %}

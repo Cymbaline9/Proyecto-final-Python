@@ -1,0 +1,36 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+{% block seccion %}
+    <h1>Editar Profesor</h1>
+    
+{% endblock %}
+
+
+{% block contenido %}
+
+  
+    <h2>Datos del profesor a editar</h2>
+
+    <form action="{%url 'editar_profesor' profesor.id%}" method="POST">
+        {% csrf_token %}
+        <p>Nombre</p>
+        {{form.nombre}}
+
+        <p>Apellido</p>
+        {{form.apellido}}
+
+        <p>DNI</p>
+        {{form.dni}}
+
+        <p>Email</p>
+        {{form.email}}
+
+        <p>Materia</p>
+        {{form.materia}}
+
+        <input type="submit" value="Enviar cambios">
+    </form>
+
+{% endblock %}

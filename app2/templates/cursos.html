@@ -1,0 +1,54 @@
+{% extends "padre.html" %}
+
+
+
+{% block seccion %}
+    <h1>Cursos</h1>
+{% endblock %}
+
+
+
+{% block contenido %}
+
+<main>
+    <h1>Menú Cursos</h1>
+    <br><br>
+    <div class="container">
+    <div class="row">
+        <div class="col-4">
+            <div class="card" style="width: 18rem;">
+                <a href="{% url 'mostrar_cursos' %}">
+                    <button type="button" class="btn btn-dark">Info de cursos</button>
+                </a>
+                </div>
+              </div>
+        </div>
+        {% if user.is_superuser %}
+        <div class="row">
+            <div class="col-4">
+                <div class="card" style="width: 18rem;">
+                    <a href="{% url 'alta_curso' %}">
+                        <button type="button" class="btn btn-light">Alta de cursos</button>
+                    </a>
+                    </div>
+                  </div>
+            </div>
+
+            <div class="row">
+                <div class="col-4">
+                    <div class="card" style="width: 18rem;">
+                        <a href="{% url 'buscar_curso' %}">
+                            <button type="button" class="btn btn-dark">Buscar un curso</button>
+                        </a>
+                        </div>
+                      </div>
+                </div>
+        {% endif %}     
+            </div>
+    
+  
+
+ 
+</main>
+
+{% endblock %}

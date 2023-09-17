@@ -1,0 +1,45 @@
+{% extends "padre.html" %}
+
+
+
+
+{% block seccion %}
+    <h1>Cursos disponibles</h1>
+    
+{% endblock %}
+
+{% block contenido %}
+
+      <table class="table table-hover" style="text-align: center; margin-top:100px; margin-bottom:100px">
+        
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Comision</th>
+            
+          </tr>
+        
+         
+            <tr>
+            {% for curso in cursos %}
+              
+                <td>{{curso.id}}</td>
+                <td>{{curso.nombre}}</td>
+                <td>{{curso.comision}}</td>
+                <td>
+                  {% if user.is_superuser %}
+                  <a href="{%url 'borrar_curso' curso.id %}" class="btn btn-danger">BORRAR</a>
+                  <a href="{%url 'editar_curso' curso.id %}" class="btn btn-success">EDITAR</a>
+                  {% endif %}
+                </td>
+              
+              </tr>
+            {% endfor %}  
+            
+         
+         
+        
+      </table>
+    
+
+{% endblock %}

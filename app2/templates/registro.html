@@ -1,0 +1,23 @@
+{% extends "padre.html" %}
+
+
+{% block seccion %}
+    <h1>Registro de usuario</h1>
+    
+{% endblock %}
+
+
+{% block contenido %}
+
+  
+    <h2>Ingrese sus datos</h2>
+
+    <form action="" method="POST" class="container">
+        {% csrf_token %}
+
+        {{form.as_p}}
+
+        <button type="submit" onclick="return confirm('Usuario creado!')">Registrar</button> 
+    </form>
+
+{% endblock %}
